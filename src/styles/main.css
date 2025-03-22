@@ -1,0 +1,407 @@
+/* Base styles and variables */
+:root {
+  --primary-purple: #8A4FFF;
+  --primary-blue: #5BA8FF;
+  --dark-purple: #6A2FEF;
+  --dark-blue: #3B88EF;
+  --light-purple: #EBE1FF;
+  --light-blue: #E1F0FF;
+  --text-dark: #333333;
+  --text-medium: #666666;
+  --text-light: #FFFFFF;
+  --background-light: #FFFFFF;
+  --background-off: #F9F9F9;
+  --background-dark: #222222;
+  --background-purple: #F5F0FF;
+  --background-blue: #F0F8FF;
+  --border-light: #E0E0E0;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-xl: 2rem;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --box-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  color: var(--text-dark);
+  background-color: var(--background-light);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.header {
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-purple);
+  margin-bottom: var(--spacing-sm);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-medium);
+  margin-bottom: var(--spacing-lg);
+}
+
+.main-content {
+  flex: 1;
+  margin-bottom: var(--spacing-xl);
+}
+
+.footer {
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+  border-top: 1px solid var(--border-light);
+  margin-top: auto;
+}
+
+/* Navigation */
+.main-navigation {
+  background-color: var(--background-off);
+  padding: var(--spacing-md) 0;
+  margin-bottom: var(--spacing-xl);
+  border-radius: var(--border-radius-md);
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.nav-list li {
+  margin: 0 var(--spacing-md);
+}
+
+.nav-list button {
+  background: none;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--text-medium);
+  border-radius: var(--border-radius-sm);
+}
+
+.nav-list button:hover {
+  color: var(--primary-purple);
+}
+
+.nav-list li.active button {
+  color: var(--primary-purple);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Home Page */
+.intro {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  background-color: var(--background-purple);
+  border-radius: var(--border-radius-lg);
+}
+
+.intro h2 {
+  font-size: 2rem;
+  color: var(--primary-purple);
+  margin-bottom: var(--spacing-md);
+}
+
+.intro p {
+  margin-bottom: var(--spacing-md);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-container {
+  margin-top: var(--spacing-lg);
+}
+
+.beliefs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Belief Cards */
+.belief-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: transform 300ms ease-in-out, box-shadow 300ms ease-in-out;
+  height: 100%;
+}
+
+.belief-card.purple {
+  background-color: var(--light-purple);
+}
+
+.belief-card.blue {
+  background-color: var(--light-blue);
+}
+
+.belief-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-md);
+}
+
+.belief-icon {
+  width: 80px;
+  height: 80px;
+  background-color: var(--background-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.belief-icon.large {
+  width: 100px;
+  height: 100px;
+}
+
+.belief-title {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-dark);
+}
+
+.belief-description {
+  font-size: 0.875rem;
+  color: var(--text-medium);
+}
+
+/* Belief Detail Page */
+.belief-detail {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.belief-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.belief-header.purple {
+  background-color: var(--light-purple);
+}
+
+.belief-header.blue {
+  background-color: var(--light-blue);
+}
+
+.belief-header h2 {
+  font-size: 2rem;
+  color: var(--text-dark);
+}
+
+.belief-content {
+  margin-bottom: var(--spacing-xl);
+}
+
+.belief-content section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.belief-content h3 {
+  font-size: 1.5rem;
+  color: var(--primary-purple);
+  margin-bottom: var(--spacing-md);
+}
+
+.belief-testimonial blockquote {
+  padding: var(--spacing-lg);
+  background-color: var(--background-off);
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid var(--primary-purple);
+  margin-bottom: var(--spacing-md);
+}
+
+.belief-testimonial blockquote footer {
+  margin-top: var(--spacing-md);
+  font-style: italic;
+  text-align: right;
+}
+
+.belief-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-xl);
+}
+
+/* Resources */
+.resources {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.resources h2 {
+  font-size: 2rem;
+  color: var(--primary-purple);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.resource-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.resource-section h3 {
+  font-size: 1.5rem;
+  color: var(--primary-purple);
+  margin-bottom: var(--spacing-md);
+}
+
+.concept-card {
+  background-color: var(--background-off);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.concept-card h4 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-purple);
+}
+
+.center-button {
+  display: block;
+  margin: var(--spacing-xl) auto;
+}
+
+/* Buttons */
+.primary-button, .secondary-button, .cta-button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  border: none;
+  transition: background-color 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.primary-button {
+  background-color: var(--primary-purple);
+  color: var(--text-light);
+}
+
+.primary-button:hover {
+  background-color: var(--dark-purple);
+  transform: translateY(-2px);
+}
+
+.secondary-button {
+  background-color: var(--background-off);
+  color: var(--primary-purple);
+  border: 1px solid var(--primary-purple);
+}
+
+.secondary-button:hover {
+  background-color: var(--light-purple);
+  transform: translateY(-2px);
+}
+
+.cta-button {
+  background-color: var(--primary-purple);
+  color: var(--text-light);
+  font-size: 1.25rem;
+  padding: var(--spacing-md) var(--spacing-xl);
+}
+
+.cta-button:hover {
+  background-color: var(--dark-purple);
+  transform: translateY(-2px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .beliefs-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  
+  .belief-navigation {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .intro h2, .resources h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-list li {
+    margin: var(--spacing-xs) 0;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+}
